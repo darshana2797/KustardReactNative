@@ -4,24 +4,17 @@ import { Text, View, TextInput, ScrollView, Image, TouchableOpacity, Alert } fro
 import { connect } from 'react-redux';
 import {fetchFood} from '../redux/actions/dashboardActions';
 import {styles} from './styles';
+import {Header} from '../components/Header'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 function Dashboard(props)  {
     //react hooks
-    const [offset, onScroll] = useState(0)
     useEffect(() => {
         props.fetchFood();
     })
        
     const data = props.recipes && props.recipes.recipes.data;
     const dummyImgLink = "https://s3.ap-south-1.amazonaws.com/applab-machine-apps/healthy-app-images/575ee932a8c1782f1945b2fe.jpg";
-
-    //To detect whether the scroll position is up or down and hide the header accordingly.
-    const handleOnScroll = (event) => {
-        var currentOffset = event.nativeEvent.contentOffset.y;
-        onScroll(currentOffset)
-        props.navigation.setOptions({ headerShown: currentOffset > offset ? false : true })
-    }
 
     const recipesSection = data ? data.map((item, index)=> {
         return (
@@ -57,18 +50,21 @@ function Dashboard(props)  {
     }) : null
 
     return (
-        <View style={styles.dashboardContainer}>
-            <View style = {styles.searchBarContainer}>
-                <TextInput
-                  style={styles.searchBar}
-                  onChangeText={text => console.log(text)}
-                  placeholder={'Search recipes..'}
-                />
-                <View  style={styles.searchIconContainer}>
-                    <Icon name="search" size={20} color="grey" style={styles.searchIconStyle}/>
+        <View style={styles.container}>
+            <ScrollView style={styles.scrollViewStyle} stickyHeaderIndices={[1]} showsVerticalScrollIndicator={false}>
+                <Header/>
+                <View style={styles.container}>
+                    <View style = {styles.searchBarContainer}>
+                            <TextInput
+                              style={styles.searchBar}
+                              onChangeText={text => console.log(text)}
+                              placeholder={'Search recipes..'}
+                            />
+                            <View  style={styles.searchIconContainer}>
+                                <Icon name="search" size={20} color="grey" style={styles.searchIconStyle}/>
+                            </View>
+                    </View>
                 </View>
-            </View>
-            <ScrollView style={styles.scrollViewStyle} onScroll = {(event) => {handleOnScroll(event)}}>
                 <View style={styles.imageBannerContainer}>
                     {props.recipes && props.recipes.recipes.data ? 
                     <Image
@@ -88,8 +84,9 @@ function Dashboard(props)  {
                     }
                 </View>
                 {recipesSection}
-            </ScrollView>
+            </ScrollView>         
         </View>
+
     )
 }
 

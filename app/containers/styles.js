@@ -4,11 +4,10 @@ const screenWidth = Dimensions.get('window').width
 const screenHeight = Dimensions.get('window').height
 
 export const styles = StyleSheet.create({
-    dashboardContainer: {
-        flex: 1,
+    container: {    
         display: 'flex', 
         alignItems: 'center', 
-        height: screenHeight, 
+        height: 'auto', 
         width: screenWidth, 
     },
     searchBarContainer: {
@@ -19,7 +18,9 @@ export const styles = StyleSheet.create({
         alignItems: 'center', 
         justifyContent:'center', 
         flexDirection: 'row',
-        borderWidth: 0
+        borderWidth: 0,
+        zIndex: 99
+        // position: 'sticky',
     },
     searchBar: {
         height: 40, 
@@ -45,7 +46,9 @@ export const styles = StyleSheet.create({
         marginRight: 5
     },
     scrollViewStyle: {
-        flex: 1,
+        top: 0,
+        display: 'flex',
+        flexDirection: 'column',
         width: screenWidth, 
     },
     imageBannerContainer: {
@@ -57,7 +60,10 @@ export const styles = StyleSheet.create({
         width: screenWidth
     },
     cardsContainer: {
-        height: 220, width: screenWidth, marginTop: 25
+        height: 220, 
+        width: screenWidth,
+        marginTop: 25,
+        zIndex: 0
     },
     cardsContainerHeading: {
         display: 'flex', 
