@@ -14,13 +14,13 @@ export default (state=initialState, action) => {
     switch (action.type) {
 
         case FETCH_FOOD:
-            return state;
+            return state; 
 
         case FETCH_FOOD_SUCCESS:
-            return {...state, recipes: action.response};
+            return {...state, recipes: action.response}; //when a successful api response is fetched, the response will be stored in 'recipes'.
 
         case FETCH_FOOD_FAILED:
-            return {...state, errorMessage: action.error};
+            return {...state, errorMessage: action.error}; //when an unsuccessful api response is fetched, an error message from the api or manual error message can be set in 'errorMessage'.
             
         default:
             return state;

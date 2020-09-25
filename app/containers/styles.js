@@ -46,7 +46,6 @@ export const styles = StyleSheet.create({
     },
     scrollViewStyle: {
         flex: 1,
-        // height: '90%',  
         width: screenWidth, 
     },
     imageBannerContainer: {
@@ -61,19 +60,36 @@ export const styles = StyleSheet.create({
         height: 220, width: screenWidth, marginTop: 25
     },
     cardsContainerHeading: {
-        display: 'flex', flexDirection: 'row', justifyContent:'space-between', width: screenWidth, padding:5
+        display: 'flex', 
+        flexDirection: 'row', 
+        justifyContent:'space-between', 
+        width: screenWidth, padding:5
     },
     recipeTypeText: {
-        fontSize: 20, color: '#3e403f'
+        fontSize: 20, 
+        color: '#3e403f'
     },
     moreButton: {
-        backgroundColor: '#0c8a2e', height: 30, width: 'auto', padding: 5, borderRadius: 2
+        backgroundColor: '#0c8a2e', 
+        height: 30, 
+        width: 'auto', 
+        padding: 5, 
+        borderRadius: 2
     },
     cardStyle: {
-        display: 'flex', flexDirection: 'row', width: screenWidth, height: 'auto', justifyContent: 'space-between', padding: 5
+        display: 'flex', 
+        flexDirection: 'row', 
+        width: screenWidth, 
+        height: 'auto', 
+        justifyContent: 'space-between', 
+        padding: 5
     },
     cardImageContainer: {
-        flexDirection: 'column', height: 180, width: 'auto', padding: 4,shadowColor: "#000",
+        flexDirection: 'column', 
+        height: 180, 
+        width: 'auto', 
+        padding: 4,
+        shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 8,
@@ -85,12 +101,23 @@ export const styles = StyleSheet.create({
         borderColor: 'transparent'
     },
     recipeImageStyle: {
-        height: 115, width: 118
+        height: 115, 
+        width: 118
     },
     recipeNameContainer: {
-        height: 60, width: 100, padding: 2, overflow: 'hidden'
+        height: 60, 
+        width: 100, 
+        padding: 2, 
+        overflow: 'hidden'
     },
     recipenameStyle: {
         fontSize: 15
+    },
+    itemDetailsContainer: {
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        height: screenHeight, 
+        width: screenWidth
     }
 })

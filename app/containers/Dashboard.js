@@ -7,7 +7,7 @@ import {styles} from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 function Dashboard(props)  {
-
+    //react hooks
     const [offset, onScroll] = useState(0)
     useEffect(() => {
         props.fetchFood();
@@ -16,11 +16,13 @@ function Dashboard(props)  {
     const data = props.recipes && props.recipes.recipes.data;
     const dummyImgLink = "https://s3.ap-south-1.amazonaws.com/applab-machine-apps/healthy-app-images/575ee932a8c1782f1945b2fe.jpg";
 
+    //To detect whether the scroll position is up or down and hide the header accordingly.
     const handleOnScroll = (event) => {
         var currentOffset = event.nativeEvent.contentOffset.y;
         onScroll(currentOffset)
         props.navigation.setOptions({ headerShown: currentOffset > offset ? false : true })
     }
+
     const recipesSection = data ? data.map((item, index)=> {
         return (
             item.name && item.recipes &&
@@ -80,10 +82,9 @@ function Dashboard(props)  {
                             style={styles.imageBannerStyle}
                             source={{
                                 uri: 'https://reactnative.dev/img/tiny_logo.png',
-                        }}
-                    />
+                            }   }
+                        />
                     </TouchableOpacity>
-                    
                     }
                 </View>
                 {recipesSection}

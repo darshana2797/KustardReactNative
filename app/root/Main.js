@@ -1,7 +1,6 @@
+// implement the navigation here.
 import React from 'react';
 import {View, Text} from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { connect } from 'react-redux';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Dashboard from '../containers/Dashboard';
@@ -9,7 +8,7 @@ import ItemDetails from '../containers/ItemDetails';
 import IonIcon from "react-native-vector-icons/Ionicons";
 import {styles} from './styles';
 
-
+//header data can be in a separate function
 function LogoTitle() {
     return (
     <View style={styles.logoTitleContainer}>
@@ -21,7 +20,7 @@ function LogoTitle() {
     );
   }
   
-function Main() {
+export default function Main() {
     const Stack = createStackNavigator();
 
     return (
@@ -46,10 +45,3 @@ function Main() {
     ) 
 }
 
-const mapStateToProps = state => {
-    return {
-        recipes: state.recipes
-    }
-}
-
-export default connect(mapStateToProps)(Main);

@@ -10,6 +10,7 @@ export const fetchFood = () => {
     }
 }
 
+//dispatched on successful API response
 export const fetchFoodSuccess = (response) => {
     return{
         type:FETCH_FOOD_SUCCESS,
@@ -17,6 +18,7 @@ export const fetchFoodSuccess = (response) => {
     }
 }
 
+//dispatched on unsuccessful API response
 export const fetchFoodFailed = (error) => {
     return{
         type:FETCH_FOOD_FAILED,
